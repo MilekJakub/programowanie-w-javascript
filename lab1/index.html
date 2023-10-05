@@ -4,20 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab 1</title>
+    <style>
+      .wrong-number {
+        border: 2px solid red;
+      }
+      .wrong-number:focus {
+        outline: none;
+        border: 2px solid red;
+      }
+    </style>
   </head>
 
   <body>
-    <div id="pola">
-      <input type="text" class="liczba" value="0" />
-      <input type="text" class="liczba" value="0" />
-      <input type="text" class="liczba" value="0" />
+    <div id="input-container">
+      <input type="text" class="number" value="0" />
+      <input type="text" class="number" value="0" />
+      <input type="text" class="number" value="0" />
     </div>
 
-    <button id="dodaj-pole">Dodaj pole</button>
+    <button id="add-input">Add input</button>
 
-    <div id="wyniki">
-      <p>Suma: <span id="suma">0</span></p>
-      <p>Średnia: <span id="srednia">0</span></p>
+    <div id="results">
+      <p>Sum: <span id="sum">0</span></p>
+      <p>Average: <span id="average">0</span></p>
       <p>Min: <span id="min">0</span></p>
       <p>Max: <span id="max">0</span></p>
     </div>
