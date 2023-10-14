@@ -1,0 +1,55 @@
+#slider {
+    display: flex;
+    width: 600px;
+    height: 400px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.animation {
+    display: flex;
+    animation-name: pociag-w-lewo;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+.sliderButton {
+    border: 0;
+    background-color: #444;
+    color: white;
+    position: fixed;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.sliderButton:hover {
+    cursor: pointer;
+}
+
+#sliderPauseButton {
+    top: 0;
+    right: 0;
+}
+
+#sliderLeftButton {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+#sliderRightButton {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+@keyframes pociag-w-lewo {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-600px);
+    }
+}
