@@ -1,67 +1,54 @@
-// notatnik z zajęć
-const liczby = [ ...document.querySelectorAll('.liczba') ];
-const dodajPoleBtn = document.querySelector('#dodaj-pole');
-const wynikiPojemnik = document.querySelector('#wyniki');
+const inputContainerEl = document.querySelector('#input-container');
+const resultsEl = document.querySelector('#results');
+const addInputBtn = document.querySelector('#add-input');
+const numbersEl = [ ...document.querySelectorAll('.number') ];
 
-const sumaPole = document.querySelector('#suma');
-const sredniaPole = document.querySelector('#srednia');
-const minPole = document.querySelector('#min');
-const maxPole = document.querySelector('#max');
+const sumEl = document.querySelector('#sum');
+const averageEl = document.querySelector('#average');
+const minEl = document.querySelector('#min');
+const maxEl = document.querySelector('#max');
 
-dodajPoleBtn.addEventListener('click', () => {
-    const nowePole = document.createElement("input");
-    nowePole.type = "text";
-    nowePole.value = "0";
-    nowePole.classList.add("liczba");
-    liczby.push(nowePole);
-    document.querySelector('#pola').appendChild(nowePole);
-    usunEventy();
-    dodajEventy();
-});
-
-function dodajEventy() {
-    for (let i = 0; i < liczby.length; i++)
-    {
-        liczby[i].addEventListener('input', inputEvent);
-    }
-}
-
-function usunEventy() {
-    for (let i = 0; i < liczby.length; i++) {
-        liczby[i].removeEventListener('input', inputEvent)
-    }
-}
-
-function inputEvent() {
+function inputEventHandler(evt) {
+    if (!evt.target.classList.contains('number')) return;
 
     const values = [];
 
-    for (let i = 0; i < liczby.length; i++) {
-        const parsed = parseInt(liczby[i].value);
+    for (let i = 0; i < numbersEl.length; i++) {
+        const parseResult = parseInt(numbersEl[i].value);
 
-        if (isNaN(parsed)) {
+        if (isNaN(parseResult)) {
+            numbersEl[i].classList.add('wrong-number');
             values.push(0);
-            console.error('zla liczba');
-        } else {
-            values.push(parsed);
+        }
+        else {
+            numbersEl[i].classList.remove('wrong-number');
+            values.push(parseResult);
         }
     }
 
-    let suma = 0, srednia, min, max;
+    let sum = 0;
+    let average, min, max;
     
-    for (let i = 0; i < values.length; i++) {
-        suma += values[i];
-    }
+    for (let i = 0; i < values.length; i++) sum += values[i];
 
-    srednia = suma / values.length;
-
+    average = sum / values.length;
     min = Math.min(...values);
     max = Math.max(...values);
 
-    sumaPole.textContent = suma;
-    sredniaPole.textContent = srednia;
-    minPole.textContent = min;
-    maxPole.textContent = max;
+    sumEl.textContent = sum;
+    averageEl.textContent = average;
+    minEl.textContent = min;
+    maxEl.textContent = max;
 }
 
-dodajEventy();
+function clickEventHandler() {
+    const newInput = document.createElement("input");
+    newInput.type = "text";
+    newInput.value = "0";
+    newInput.classList.add("number");
+    numbersEl.push(newInput);
+    inputContainerEl.appendChild(newInput);
+}
+
+inputContainerEl.addEventListener('input', inputEventHandler);
+addInputBtn.addEventListener('click', clickEventHandler);
