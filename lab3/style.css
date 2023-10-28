@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+#nav {
+    margin: 2rem;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 100%;
+}
+
+#channels {
+    padding: 2rem;
+    width: 100vh;
+}
+
+#sounds {
+    padding: 2rem;
+    width: 100vh;
+}
+
+
