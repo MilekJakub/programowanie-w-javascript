@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteKeeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>NoteKeeper</h1>
+
+    <div id="container">
+        <nav id="topbar">
+            <ul id="topbar-list">
+                <button id="add-note" class="topbar-item">Add</button>
+                <button id="save-note" class="topbar-item">Save</button>
+            </ul>
+        </nav>
+        <nav id="sidebar">
+            <ul id="sidebar-list">
+                <li class="sidebar-item sidebar-item-selected">test1</li>
+                <li class="sidebar-item">test2</li>
+                <li class="sidebar-item">test3</li>
+                <li class="sidebar-item">test4</li>
+                <li class="sidebar-item">test5</li>
+            </ul>
+        </nav>
+
+        <main id="content">
+            <input type="text" id="note-title" value="Put your note title here..." />
+            <textarea id="note-content">Put your note content here...</textarea>
+        </main>
+    </div>
+
+    <script src="./index.js" defer></script>
+</body>
+</html>
